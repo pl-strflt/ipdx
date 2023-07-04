@@ -1,4 +1,4 @@
-# H2 2023
+# IPDX Roadmap H2 2023
 
 Given our mode of operation and the fact that we are highly affected by current needs of teams, our H2 roadmap serves mainly us a guideline of where our interests lie and where we'd like to focus our efforts. We view our adaptability as one of our main strengths but it also means we have to be flexible when it comes to our planning. If you already know of things you'd like our involvement for in H2 2023, please let us know - we're happy to adjust accordingly. We're here for you ❤️
 
