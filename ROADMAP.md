@@ -50,7 +50,7 @@ All of the above will make Unified CI more robust, easier to manage and it will 
 
 ## Immerse Into the Day to Day of IP JS Developer
 
-As one of the most underresourced projects within IP Stewards group, we think it is the best target for our research. We want to embed with the team for a while to uncover areas of potential DX improvements. By the end of this excercise we want to have a concrete, prioritised list of improvements that would make life of a IP JS developer easier.
+As one of the most under-resourced projects within IP Stewards group, it is the best target for our research. We want to embed with the team for a while to uncover areas of potential DX improvements. By the end of this exercise, we want to have a concrete, prioritised list of improvements that would make the life of a IP JS developer easier.
 
 ## Improve the Day to Day of Kubo/Boxo Developer
 
