@@ -55,7 +55,8 @@ As one of the most under-resourced projects within IP Stewards group, it is the 
 ## Improve the Day to Day of Kubo/Boxo Developer
 
 We've been focusing on Kubo/Boxo developers in H1 2023. In H2, we'd like to work on the work items that we identified throughout the process. The main projects we envision are:
-- create a general solution for identifyin flaky tests within Go ecosystem
+- create a general solution for identifying flaky tests within Go ecosystem
+- create a general solution for [enforcing constraints on dependencies within Go ecosystem](https://github.com/pl-strflt/ipdx/issues/80)
 - automate CHANGELOG update reminders
 - fix the shortcomings of testing and coverage at the cross section of Kubo and Boxo
 - deprecate sharness tests
