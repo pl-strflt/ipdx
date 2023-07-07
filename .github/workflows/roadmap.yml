@@ -1,0 +1,97 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ROADMAP.md
+      - .github/workflows/roadmap.yml
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+jobs:
+  roadmap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const issues = await github.paginate(github.rest.issues.listForRepo, {owner, repo});
+
+            const fs = require('fs');
+            const roadmap = fs.readFileSync('ROADMAP.md', 'utf8');
+
+            var issue
+            var title = ''
+            var body = ''
+
+            const milestones = []
+            for (const line of roadmap.split('\n')) {
+              if (line.startsWith('## ')) {
+                if (title) {
+                  const link = title.toLowerCase().replace(/[\s]/g, '-').replace(/[^\w-]/g, '');
+                  body = `description: https://github.com/${owner}/${repo}/blob/master/ROADMAP.md#${link}\n\n` +
+                    `---\n\n${body}`;
+                  milestones.push({ title, body });
+                }
+                title = line.replace('## ', '');
+                body = '';
+              } else {
+                body += `${line}\n`;
+              }
+            }
+            if (title) {
+              milestones.push({ title, body });
+            }
+
+            const children = []
+            for (const {title, body} of milestones) {
+              issue = issues.find(issue => issue.title === title);
+              if (issue) {
+                await github.rest.issues.update({
+                  owner,
+                  repo,
+                  issue_number: issue.number,
+                  body: `${issue.body.split('---')[0]}\n---\n${body}`,
+                  labels: ['starmaps'],
+                });
+              } else {
+                issue = (await github.rest.issues.create({
+                  owner,
+                  repo,
+                  title,
+                  body: `<!-- The content above will **NOT** be modified by automation. -->\n\n---\n\n${body}`,
+                  labels: ['starmaps'],
+                })).data;
+              }
+              children.push(issue.html_url);
+            }
+
+            title = roadmap.split('\n')[0].replace('# ', '');
+            body = `description: https://github.com/${owner}/${repo}/blob/master/ROADMAP.md\n` +
+              `children:\n${children.map(child => `  - ${child}`).join('\n')}\n` +
+              `---\n\n${roadmap}`;
+
+            issue = issues.find(issue => issue.title === title);
+            if (issue) {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: issue.number,
+                body: issue.body.split('---')[0] + '\n---\n' + body,
+                labels: ['starmaps'],
+              });
+            } else {
+              await github.rest.issues.create({
+                owner,
+                repo,
+                title,
+                body: '<!-- The content above will **NOT** be modified by automation. -->\n\n---\n\n' + body,
+                labels: ['starmaps'],
+              });
+            }
