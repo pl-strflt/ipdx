@@ -64,6 +64,8 @@ We've been focusing on Kubo/Boxo developers in H1 2023. In H2, we'd like to work
 
 ## Explore DX of Building on IPFS Stack
 
+A major push around debuggability within our stack is expected to happen. This is a great opportunity to kick start a joint effort between Kubo, Helia, IPDX, and probelab. 
+
 Through our work on Gateway Conformance we discovered that building on IPFS stack is not easy, even for people close to the ecosystem. We'd like to start a standalone project that would help us explore this further. The very rough game plan is:
 1. Start a simple project that cuts through all the layers of IPFS stack (working idea - decentralised DropBox).
 2. Consume the publicly available documentation to implement the project.
