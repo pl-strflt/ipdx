@@ -46,7 +46,7 @@ In August, we're going to release new version of Unified CI with Go 1.21 support
 - allowing configurability through dot files
 - simplifying enrollment with invite to deploy strategy
 
-All of the above will make Unified CI more robust, easier to manage and it will increase it chances to last for another couple of years. Moreover, it will open up doors for even more automation across hundreds of repositories, like using dependabot (instead of web3-bot that has to be maintained by IPDX) for Unified CI updates for example.
+All of the above will make Unified CI more robust, easier to manage and it will increase it chances to last for another couple of years. Moreover, it will open up doors for even more automation across hundreds of repositories, like using dependabot (instead of web3-bot that has to be maintained by IPDX) for Unified CI updates, or maintaining multiple variants of releaser workflows (e.g. release-please vs version.json vs PR).
 
 ## Immerse Into the Day to Day of IP JS Developer
 
