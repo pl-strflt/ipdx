@@ -27,7 +27,7 @@ As stretch goals for the Gateway Conformance initiative, we identified:
 
 ## Increase PL Self-Hosted Runners Relevance
 
-With the recent cost-reduction effort in the PL self-hosted runners space the project is well positioned to serve the needs of PL developers already. As of now there are 2 areas that we'd like to look more closely into:
+With the recent $ cost reduction efforts in the PL self-hosted runners space the project is well positioned to serve the needs of PL developers already i.e. we feel confident it's the correct solution to apply to increase developer speed when faced with GitHub hosted runners bottleneck problem. As of now there are 2 areas that we'd like to look more closely into:
 - windows runners (we already had them set up at the beginning so it's just a matter of resurrecting the configuration)
 - decreasing boot time (currently the runners take up to 2 minutes to boot up)
 
